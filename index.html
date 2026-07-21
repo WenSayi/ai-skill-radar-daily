@@ -6,7 +6,9 @@
   <title>AI Skill Radar｜AI Skill 每日雷达</title>
   <meta name="description" content="每日发现、筛选和解读优秀 AI Skills、Agents、MCP Servers 与自动化工作流的公开情报网站。"/>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233855c8'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial' font-size='34' font-weight='700' fill='white'%3ER%3C/text%3E%3C/svg%3E"/>
+  <meta name="theme-color" content="#f5f5f7"/>
   <link rel="stylesheet" href="./styles.css"/>
+  <link rel="stylesheet" href="./apple.css"/>
 </head>
 <body>
 <main id="top">
@@ -537,6 +539,12 @@
   menuButton?.addEventListener('click', () => {
     const open = navigation.classList.toggle('open');
     menuButton.setAttribute('aria-expanded', String(open));
+  });
+  navigation?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navigation.classList.remove('open');
+      menuButton?.setAttribute('aria-expanded', 'false');
+    });
   });
 
   const tableBody = document.querySelector('.table-wrap tbody');
